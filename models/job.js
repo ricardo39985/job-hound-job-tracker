@@ -18,9 +18,14 @@ const jobSchema = new Schema(
       enum: ['applied', 'rejected', 'interviewed', 'offer', 'accepted', 'declined'],
       default: 'applied',
     },
-    link:{
-      type: String
-    }
+    link: {
+      type: String,
+    },
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: 'User',
+      required: true,
+    },
   },
   {
     timestamps: true,

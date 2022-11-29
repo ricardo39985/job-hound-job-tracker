@@ -1,3 +1,4 @@
+import Jobs from '../Jobs/Jobs';
 import NewJob from '../NewJob/NewJob';
 
 export default function Dashboard() {
@@ -5,6 +6,7 @@ export default function Dashboard() {
         <>
             <h1>All Jobs</h1>
             <NewJob />
+            <Jobs/>
         </>
     )
 };

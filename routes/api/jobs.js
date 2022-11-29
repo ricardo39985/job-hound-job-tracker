@@ -3,8 +3,8 @@ const router = express.Router();
 const jobsCtrl = require('../../controllers/api/jobs');
 const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
-router.post('/', jobsCtrl.create);
-// router.post('/login', jobsCtrl.login);
+router.post('/', ensureLoggedIn, jobsCtrl.create);
+router.get('/', ensureLoggedIn, jobsCtrl.index);
 // router.get('/check-token', ensureLoggedIn, jobsCtrl.checkToken);
 
 module.exports = router;
