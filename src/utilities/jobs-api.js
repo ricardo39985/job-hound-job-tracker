@@ -9,6 +9,6 @@ export async function getAll() {
   return sendRequest(`${BASE_URL}`);
 }
 
-export function deleteJob(id) {
-  return sendRequest(`${BASE_URL}`,'DELETE', id);
+export function deleteJob(job) {
+  return sendRequest(`${BASE_URL}`, 'DELETE', job);
 }

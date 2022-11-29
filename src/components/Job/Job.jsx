@@ -1,8 +1,8 @@
 import { deleteJob } from '../../utilities/jobs-api'
 
 export default function Job({ job }) {
-    function handleDelete() {
-        deleteJob(job._id)
+    async function handleDelete() {
+        deleteJob({id:job._id})
     }
     console.log(job)
     return <>

@@ -5,6 +5,8 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
 router.post('/', ensureLoggedIn, jobsCtrl.create);
 router.get('/', ensureLoggedIn, jobsCtrl.index);
+router.delete('/', ensureLoggedIn, jobsCtrl.delete);
+
 // router.get('/check-token', ensureLoggedIn, jobsCtrl.checkToken);
 
 module.exports = router;
