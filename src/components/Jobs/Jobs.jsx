@@ -1,15 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getAll } from '../../utilities/jobs-api';
 import Job from '../Job/Job';
-export default function Jobs() {
-    const [jobs, setJobs] = useState([])
-    useEffect(function () {
-        async function getJobs() {
-            const allJobs = await getAll();
-            setJobs(allJobs);
-        }
-        getJobs();
-    }, [])
+export default function Jobs({jobs,setJobs}) {
 
 
     return <>
@@ -42,7 +34,7 @@ export default function Jobs() {
                     </tr>
                 </thead>
                 <tbody>
-                    {jobs.map((job) => <Job key={job._id} job={job} />)}
+                    {jobs.map((job) => <Job key={job._id} job={job} setJobs={setJobs} jobs={jobs}/>)}
                 </tbody>
             </table>
         </div>

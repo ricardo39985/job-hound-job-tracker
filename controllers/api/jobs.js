@@ -4,16 +4,19 @@ module.exports = {
   create,
   index,
   delete: deleteJob,
+  updateStatus,
 };
 
 async function create(req, res) {
   try {
+    console.log(req.body);
     const job = await Job.create({ ...req.body, user: req.user });
     console.log(job);
+
     res.json(job);
-  } catch (err) {
-    console.log(err);
-    res.status(400).json(err);
+  } catch (error) {
+    console.log(error);
+    res.status(400).json(error);
   }
 }
 async function index(req, res) {
@@ -21,18 +24,29 @@ async function index(req, res) {
     const jobs = await Job.find({ user: req.user });
     console.log(jobs);
     res.json(jobs);
-  } catch (err) {
-    console.log(err);
-    res.status(400).json(err);
+  } catch (error) {
+    console.log(error);
+    res.status(400).json(error);
   }
 }
 async function deleteJob(req, res) {
   try {
     console.log(req.body.id);
-    const job = await Job.deleteOne({ user: req.user, id: req.body.id });
-    res.json({})
-  } catch (err) {
-    console.log(err);
-    res.status(400).json(err);
+    const job = await Job.findByIdAndDelete(req.body.id);
+    res.json({ id: req.body.id });
+  } catch (error) {
+    console.log(error);
+    res.status(400).json(error);
+  }
+}
+async function updateStatus(req, res) {
+  try {
+    const job = await Job.findById(req.params.id);
+    job.status=req.body.status
+    await job.save()
+    console.log({company:job.company,status:job.status} )
+    res.json(job);
+  } catch (error) {
+    res.status(400).json(error);
   }
 }

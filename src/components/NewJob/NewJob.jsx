@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { add } from '../../utilities/jobs-api';
-export default function NewJob() {
+export default function NewJob({setJobs, jobs}) {
     const [newJobForm, setNewJobForm] = useState({ company: "", from: 0, to: 0, link: "" })
     function handleChange(evt) {
         setNewJobForm({ ...newJobForm, [evt.target.name]: evt.target.value });
@@ -10,10 +10,9 @@ export default function NewJob() {
         // Prevent form from being submitted to the server
         evt.preventDefault();
         try {
-          // The promise returned by the signUp service method
-          // will resolve to the user object included in the
-          // payload of the JSON Web Token (JWT)
           const job = await add(newJobForm);
+          console.log(job)
+          setJobs([...jobs,job])
         //   setNewJobForm({...{company: "", from: 0, to: 0, link: ""} })
 
         } catch {
@@ -31,7 +30,7 @@ export default function NewJob() {
             <input type="number" name="to" id="" onChange={handleChange} />
 
             <label htmlFor="link">Link</label>
-            <input type="url" name="url" id="url"
+            <input type="url" name="link" id="url"
                 placeholder="https://example.com"
                 pattern="https://.*"
                 required onChange={handleChange} ></input>

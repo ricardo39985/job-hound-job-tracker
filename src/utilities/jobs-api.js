@@ -12,3 +12,7 @@ export async function getAll() {
 export function deleteJob(job) {
   return sendRequest(`${BASE_URL}`, 'DELETE', job);
 }
+export function changeStatus(job) {
+  console.log(job.id)
+  return sendRequest(`${BASE_URL}/${job.id}`, 'POST', job);
+}
