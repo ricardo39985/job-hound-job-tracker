@@ -15,9 +15,8 @@ export default function Job({ job, jobs, setJobs }) {
 
     }
 
-
     return <>
-        <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+        <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700 ">
             <th scope="row" className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                 {currentJob.company}
             </th>
@@ -35,12 +34,12 @@ export default function Job({ job, jobs, setJobs }) {
                 <p><small>{moment(currentJob.updatedAt).format('h:mm:ss a')}</small></p>
             </td>
             <td className="py-4 px-6">
-                <select defaultValue={currentJob.status} name="status" id="status" onChange={handleChangeStatus}>
-                    {['applied', 'rejected', 'interviewed', 'offer', 'accepted', 'declined'].map((stat) => <option key={stat} value={stat}>{stat}</option>)}
+                <select defaultValue={currentJob.status} name="status" id="status" onChange={handleChangeStatus} className="bg-white">
+                    {['applied', 'rejected', 'interviewed', 'offer', 'accepted', 'declined'].map((stat) => <option className='bg-gray-200 rounded-xl outline outline-green-400'key={stat} value={stat}>{stat}</option>)}
                 </select>
             </td>
             <td className="py-4 px-6" >
-                <button onClick={handleDelete}>X</button>
+                <button onClick={handleDelete} className="bg-red-500 px-6 text-white rounded-md">X</button>
             </td>
         </tr>
     </>

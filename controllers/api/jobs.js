@@ -11,18 +11,15 @@ async function create(req, res) {
   try {
     console.log(req.body);
     const job = await Job.create({ ...req.body, user: req.user });
-    console.log(job);
 
     res.json(job);
   } catch (error) {
-    console.log(error);
     res.status(400).json(error);
   }
 }
 async function index(req, res) {
   try {
     const jobs = await Job.find({ user: req.user });
-    console.log(jobs);
     res.json(jobs);
   } catch (error) {
     console.log(error);

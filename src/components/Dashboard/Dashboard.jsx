@@ -5,6 +5,7 @@ import NewJob from '../NewJob/NewJob';
 
 export default function Dashboard() {
     const [jobs, setJobs] = useState([])
+
     useEffect(function () {
         async function getJobs() {
             const allJobs = await getAll();
