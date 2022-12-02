@@ -83,8 +83,7 @@ Simple Mern Job Tracker app.
 :heavy_check_mark: CRUD\
 :heavy_check_mark: Express BAckend\
 :heavy_check_mark: React Front End\
-:heavy_check_mark: \
-:heavy_check_mark:
+
 
 ## :rocket: Technologies
 
