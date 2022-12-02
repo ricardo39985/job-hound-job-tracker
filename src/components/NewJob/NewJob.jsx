@@ -23,29 +23,24 @@ export default function NewJob({ setJobs, jobs }) {
 
 
   return (
-    <div className="flex outline outline-1 outline-green-300 my-2 mx-auto w-[40%] p-4 justify-center">
+    <div className="flex bg-gray-200 my-8 p-8 mx-auto w-[70%] md:w-[90%] sm:w-full justify-center">
       <form onSubmit={handleSubmit} >
-        <h1 className='text-[20px]'>Add a New Job</h1>
-        <div className='flex'>
-          <label htmlFor="company" className='mr-4 text-xl'>Company</label>
-          <input className='bg-gray-100 rounded-lg outline outline-1 outline-green-300'type="text" name="company" id="" value={newJobForm.company} onChange={handleChange} />
-        </div>
-        <p className='text-2xl'>Salary</p>
-        <div>
-
-          <label htmlFor="from" className="mr-4">From</label>
-          <input  className='bg-gray-100 rounded-lg outline outline-1 outline-green-300 mr-4' type="number" name="from" id="" value={newJobForm.from} onChange={handleChange} />
-          <label htmlFor="to" className="mr-4 " >To</label>
-          <input  className='bg-gray-100 rounded-lg outline outline-1 outline-green-300' type="number" name="to" id="" value={newJobForm.to} onChange={handleChange} />
-        </div>
-        <div className='flex my-4'>
-          <label className='mr-4' htmlFor="link">Link</label>
-          <input  className='bg-gray-100 rounded-lg outline outline-1 outline-green-300' type="url" name="link" id="url"
+        <div className='text-2xl font-bold text-gray-500'><h1>Track a new Job</h1></div>
+        <div className="flex "><p></p>
+          <p className='w-1/5'>Name</p>
+          <p className='w-1/5'>From</p>
+          <p className='w-1/5'>To</p>
+          <p className='w-1/5'>Link</p><p className='w-1/5'></p></div>
+        <div className='flex space-x-4 text-xl'>
+          <input placeholder='Company Name' className='bg-gray-100 rounded-lg outline outline-1 outline-green-300' type="text" name="company" id="" value={newJobForm.company} onChange={handleChange} />
+          <input className='bg-gray-100 rounded-lg outline outline-1 outline-green-300 mr-4' type="number" name="from" placeholder='From' value={newJobForm.from} onChange={handleChange} />
+          <input className='bg-gray-100 rounded-lg outline outline-1 outline-green-300' type="number" name="to" id="" placeholder='To' value={newJobForm.to} onChange={handleChange} />
+          <input className='bg-gray-100 rounded-lg outline outline-1 outline-green-300' type="url" name="link" id="url"
             placeholder="https://example.com"
             pattern="https://.*" value={newJobForm.link}
             required onChange={handleChange} />
+          <input type="submit" value="Add" className='block bg-green-500 px-8 ' />
         </div>
-        <input type="submit" value="Add" className='block bg-green-500 px-8 text-lg rounded-xl' />
       </form>
     </div>
   )
